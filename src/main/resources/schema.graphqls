@@ -1,0 +1,29 @@
+directive @Size(min : Int = 0, max : Int = 2147483647, message : String = "graphql.validation.Size.message")
+on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION | FIELD_DEFINITION | FIELD| QUERY | SCALAR
+
+directive @Pattern(regexp : String! =".*", message : String = "graphql.validation.Pattern.message")
+on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
+
+type Query {
+    testQuery(application: Application!):QueryResponse!
+}
+
+type QueryResponse {
+    response: String!
+}
+
+input Application {
+    name : String @Size(min : 3, max : 5)
+}
+
+type Mutation {
+    testMutation(
+        id:String! @Size(min : 3, max : 5)
+        name:String! @Pattern(regexp : "\\w+")
+        value:Int!
+    ):MutationResponse!
+}
+
+type MutationResponse {
+    response: String!
+}

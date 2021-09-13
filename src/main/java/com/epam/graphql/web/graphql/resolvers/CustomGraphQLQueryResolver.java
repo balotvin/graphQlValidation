@@ -1,0 +1,19 @@
+package com.epam.graphql.web.graphql.resolvers;
+
+import graphql.kickstart.tools.GraphQLQueryResolver;
+
+import java.util.concurrent.CompletableFuture;
+import javax.validation.Valid;
+import com.epam.graphql.web.model.Application;
+import com.epam.graphql.web.model.QueryResponse;
+import org.springframework.stereotype.Service;
+
+@Service
+public class CustomGraphQLQueryResolver implements GraphQLQueryResolver {
+
+    public CompletableFuture<QueryResponse> testQuery(@Valid final Application app) {
+        QueryResponse respModel = new QueryResponse();
+        respModel.setResponse("Return response for Test Query:valid id " + app.getName());
+        return CompletableFuture.supplyAsync(() -> respModel);
+    }
+}

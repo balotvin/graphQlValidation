@@ -1,0 +1,8 @@
+cors:
+  path: '/graphql/**'
+  allowCredentials: true
+  maxAge: 1800
+  allowedOrigins: '*'
+  allowedHeaders: '*'
+  allowedMethods: 'GET, HEAD, POST'
+  exposedHeaders: ''

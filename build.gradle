@@ -1,0 +1,39 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.12.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+}
+
+group = 'com.epam.graphql'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+ext {
+	springCloudVersion = 'Hoxton.SR5'
+	graphqlJavaKickstartVersion = '8.0.0'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation "com.graphql-java-kickstart:graphql-spring-boot-starter:$graphqlJavaKickstartVersion"
+	implementation 'com.graphql-java:graphql-java-extended-scalars:1.0'
+	implementation "com.graphql-java:graphql-java-extended-validation:15.0.1"
+
+	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("org.springframework.boot:spring-boot-starter-websocket")
+	implementation("org.springframework.boot:spring-boot-starter-actuator")
+	implementation("org.springframework.boot:spring-boot-starter-security")
+
+	implementation 'org.springframework.boot:spring-boot-starter'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	runtimeOnly "com.graphql-java-kickstart:graphiql-spring-boot-starter:$graphqlJavaKickstartVersion"
+
+}
+
+test {
+	useJUnitPlatform()
+}
