@@ -1,11 +1,11 @@
-package com.epam.graphql.web.graphql.resolvers;
+package com.pav.graphql.web.graphql.resolvers;
 
 import graphql.kickstart.tools.GraphQLQueryResolver;
 
 import java.util.concurrent.CompletableFuture;
 import javax.validation.Valid;
-import com.epam.graphql.web.model.Application;
-import com.epam.graphql.web.model.QueryResponse;
+import com.pav.graphql.web.model.Application;
+import com.pav.graphql.web.model.QueryResponse;
 import org.springframework.stereotype.Service;
 
 @Service

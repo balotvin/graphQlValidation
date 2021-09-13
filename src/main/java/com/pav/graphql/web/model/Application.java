@@ -1,4 +1,4 @@
-package com.epam.graphql.web.model;
+package com.pav.graphql.web.model;
 
 public class Application {
 

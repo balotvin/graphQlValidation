@@ -1,4 +1,4 @@
-package com.epam.graphql.web;
+package com.pav.graphql.web;
 
 import graphql.validation.rules.OnValidationErrorStrategy;
 import graphql.validation.rules.ValidationRules;

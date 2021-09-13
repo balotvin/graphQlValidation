@@ -1,9 +1,9 @@
-package com.epam.graphql.web.graphql.resolvers;
+package com.pav.graphql.web.graphql.resolvers;
 
 import graphql.kickstart.tools.GraphQLMutationResolver;
 
 import java.util.concurrent.CompletableFuture;
-import com.epam.graphql.web.model.MutationResponse;
+import com.pav.graphql.web.model.MutationResponse;
 import org.springframework.stereotype.Service;
 
 @Service

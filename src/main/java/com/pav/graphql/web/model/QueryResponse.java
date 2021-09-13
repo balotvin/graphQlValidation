@@ -1,8 +1,8 @@
-package com.epam.graphql.web.model;
+package com.pav.graphql.web.model;
 
 import java.io.Serializable;
 
-public class MutationResponse implements Serializable {
+public class QueryResponse implements Serializable {
 
     private String response;
 

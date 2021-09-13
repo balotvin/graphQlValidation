@@ -1,4 +1,4 @@
-package com.epam.graphql.web;
+package com.pav.graphql.web;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
