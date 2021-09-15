@@ -1,8 +1,32 @@
-directive @Size(min : Int = 0, max : Int = 2147483647, message : String = "graphql.validation.Size.message")
-on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION | FIELD_DEFINITION | FIELD| QUERY | SCALAR
+directive @Size(min : Int!, max : Int!, message : String = "graphql.validation.Size.message")
+on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION |FIELD_DEFINITION
 
-directive @Pattern(regexp : String! =".*", message : String = "graphql.validation.Pattern.message")
+directive @Pattern(regexp : String!, message : String = "graphql.validation.Pattern.message")
 on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
+
+type Mutation {
+    testMutation(mutation:MutationInput!):MutationResponse!
+}
+
+input Nested {
+    nestedValue: String! @Size(min:3, max:20)
+}
+
+input MutationInput {
+    id:String! @Size(min : 3, max : 5)
+    name:String! @Pattern(regexp : "\\w+")
+    value:Int!
+    nested:Nested!
+}
+
+type MutationResponse {
+    response: String!
+    nestedPart: NestedResponsePart!
+}
+
+type NestedResponsePart {
+    nestedPartValue: String!
+}
 
 type Query {
     testQuery(application: Application!):QueryResponse!
@@ -14,16 +38,6 @@ type QueryResponse {
 
 input Application {
     name : String @Size(min : 3, max : 5)
+    nested:Nested!
 }
 
-type Mutation {
-    testMutation(
-        id:String! @Size(min : 3, max : 5)
-        name:String! @Pattern(regexp : "\\w+")
-        value:Int!
-    ):MutationResponse!
-}
-
-type MutationResponse {
-    response: String!
-}
